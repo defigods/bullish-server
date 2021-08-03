@@ -19,6 +19,7 @@
     "graphql-tag": "^2.12.5",
     "http-status": "^1.4.2",
     "mongoose": "^5.9.3",
+    "node-cron": "^3.0.0",
     "node-fetch": "^2.6.1",
     "web3": "^1.5.0"
   },
