@@ -9,11 +9,18 @@
   },
   "author": "peterpan",
   "dependencies": {
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link-http": "^1.5.17",
+    "bignumber.js": "^9.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "graphql-tag": "^2.12.5",
     "http-status": "^1.4.2",
-    "mongoose": "^5.9.3"
+    "mongoose": "^5.9.3",
+    "node-fetch": "^2.6.1",
+    "web3": "^1.5.0"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
