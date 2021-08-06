@@ -8,7 +8,6 @@ const schema = new mongoose.Schema(
     tokenId: { type: Number },
     name: { type: String, required: true },
     description: { type: String },
-    image: { type: String, required: true },
     attrs: { type: Array },
   },
   { timestamps: true }
@@ -25,12 +24,16 @@ schema.static({
     }
 
     const extracted = {};
-    const fields = ["name", "description", "image"];
+    const fields = ["name", "description"];
     extracted["attributes"] = [];
 
     fields.forEach((field) => {
       extracted[field] = token[field];
     });
+    extracted[
+      "image"
+    ] = `https://ipfs.io/ipfs/QmRy86JUyGaYywq76RMPiRrmhok4Pz1KqqMexUvGrrRsrQ/${token["tokenId"]}.png`;
+
     for (let i = 0; i < token.attrs.length; i++) {
       extracted["attributes"].push(await Attribute.get(token.attrs[i]));
     }
