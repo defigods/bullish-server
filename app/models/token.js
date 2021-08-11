@@ -5,7 +5,7 @@ const Attribute = require("./attr");
 
 const schema = new mongoose.Schema(
   {
-    tokenId: { type: Number },
+    tokenId: { type: Number, unique: true },
     name: { type: String, required: true },
     description: { type: String },
     attrs: { type: Array },

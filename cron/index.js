@@ -35,7 +35,7 @@ const query = gql`
   }
 `;
 
-export const distribute = async () => {
+module.exports = async () => {
   const time = new Date().toUTCString();
   console.log(">>>>> " + time + " <<<<<");
 

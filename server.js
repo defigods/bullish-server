@@ -1,7 +1,7 @@
 const mongo = require("./config/mongo");
 const app = require("./config/express");
 const cron = require("node-cron");
-const { distribute } = require("./cron");
+const distribute = require("./cron");
 
 mongo.connect();
 
