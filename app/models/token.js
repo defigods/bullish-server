@@ -30,15 +30,23 @@ schema.static({
     fields.forEach((field) => {
       extracted[field] = token[field];
     });
-    extracted[
-      "image"
-    ] = `https://ipfs.io/ipfs/QmRy86JUyGaYywq76RMPiRrmhok4Pz1KqqMexUvGrrRsrQ/${token["tokenId"]}.png`;
+    extracted["image"] = `https://ipfs.io/ipfs/${
+      tokenId == 0
+        ? "QmYo9KtDD6SxXdALTNSpDmKHS9oLD6HDFrx3BrfdDCuaUJ"
+        : "QmYLnF62xc48bD9rRnvd99XJ6bJ622FGWwxjrtRiJvPrpD"
+    }/${token["tokenId"]}.png`;
 
     for (let i = 0; i < token.attrs.length; i++) {
       extracted["attributes"].push(await Attribute.get(token.attrs[i]));
     }
 
     return extracted;
+  },
+
+  getSaved: async function () {
+    return (
+      await this.find({}, { tokenId: 1, _id: 0 }, { sort: { tokenId: 1 } })
+    ).map((x) => x.tokenId);
   },
 });
 

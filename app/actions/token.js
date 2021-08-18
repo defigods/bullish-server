@@ -25,4 +25,8 @@ const read = (req, res) => {
   res.status(httpStatus.OK).send(req.locals.token);
 };
 
-module.exports = { load, create, read };
+const get = async (req, res) => {
+  res.status(httpStatus.OK).send((await Token.getSaved()).join(","));
+};
+
+module.exports = { load, create, read, get };

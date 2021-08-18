@@ -14,5 +14,6 @@ const appRouter = Router();
 appRouter.get("/status", (_, res) => res.send("OK"));
 appRouter.use("/tokens", tokenRouter);
 appRouter.use("/attrs", attrRouter);
+appRouter.route("/saved").get(tokenAction.get);
 
 module.exports = appRouter;
